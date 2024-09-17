@@ -31,6 +31,7 @@ public class ThreadDemo {
         Hello obj2 = new Hello();
 
         //this start()  Start Thread and internally call run()(start always call run)
+        //start is method of Thread.class
         obj1.start();
         obj2.start();
 
