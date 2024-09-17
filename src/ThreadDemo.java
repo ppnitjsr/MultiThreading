@@ -1,4 +1,4 @@
-class Hi extends Thread{
+class Hi implements Runnable{
     public void run(){
         for(int i=1;i<=5;i++){
             System.out.println("Hi");
@@ -11,7 +11,7 @@ class Hi extends Thread{
     }
 }
 
-class Hello extends Thread{
+class Hello implements Runnable{
     @Override
     public void run(){
         for(int i=1;i<=5;i++){
@@ -30,10 +30,13 @@ public class ThreadDemo {
         Hi obj1 = new Hi();
         Hello obj2 = new Hello();
 
-        //this start()  Start Thread and internally call run()(start always call run)
-        //start is method of Thread.class
-        obj1.start();
-        obj2.start();
+        Thread t1 = new Thread(obj1);
+        Thread t2 = new Thread(obj2);
+
+        //
+     // Here Thread call its on Run Method, For call our run we have to pass Our Runnable object reference in Thread constructor
+        t1.start();
+        t2.start();
 
 
 
